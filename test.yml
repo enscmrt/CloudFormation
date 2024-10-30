@@ -1,0 +1,224 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: My first cf template
+  
+#Parameters:
+  
+Resources:
+  LogicalID:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccelerateConfiguration:
+        AccelerationStatus: "String"
+      AccessControl: "String"
+      AnalyticsConfigurations: 
+        - Id: "String"
+          Prefix: "String"
+          StorageClassAnalysis:
+            DataExport:
+              Destination:
+                BucketAccountId: "String"
+                BucketArn: "String"
+                Format: "String"
+                Prefix: "String"
+              OutputSchemaVersion: "String"
+          TagFilters:
+            - Key: "String"
+              Value: "String"
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - BucketKeyEnabled: false
+            ServerSideEncryptionByDefault:
+              KMSMasterKeyID: "String"
+              SSEAlgorithm: "String"
+      BucketName: "String"
+      CorsConfiguration:
+        CorsRules:
+          - AllowedHeaders:
+              - "String"
+            AllowedMethods:
+              - "String"
+            AllowedOrigins:
+              - "String"
+            ExposedHeaders:
+              - "String"
+            Id: "String"
+            MaxAge: "Number"
+      IntelligentTieringConfigurations: 
+        - Id: "String"
+          Prefix: "String"
+          Status: "String"
+          TagFilters:
+            - Key: "String"
+              Value: "String"
+          Tierings:
+            - AccessTier: "String"
+              Days: "Number"
+      InventoryConfigurations: 
+        - Destination:
+            BucketAccountId: "String"
+            BucketArn: "String"
+            Format: "String"
+            Prefix: "String"
+          Enabled: false
+          Id: "String"
+          IncludedObjectVersions: "String"
+          OptionalFields:
+            - "String"
+          Prefix: "String"
+          ScheduleFrequency: "String"
+      LifecycleConfiguration:
+        Rules:
+          - AbortIncompleteMultipartUpload:
+              DaysAfterInitiation: "Number"
+            ExpirationDate: "String"
+            ExpirationInDays: "Number"
+            ExpiredObjectDeleteMarker: false
+            Id: "String"
+            NoncurrentVersionExpiration:
+              NewerNoncurrentVersions: "Number"
+              NoncurrentDays: "Number"
+            NoncurrentVersionExpirationInDays: "Number"
+            NoncurrentVersionTransition:
+              NewerNoncurrentVersions: "Number"
+              StorageClass: "String"
+              TransitionInDays: "Number"
+            NoncurrentVersionTransitions:
+              - NewerNoncurrentVersions: "Number"
+                StorageClass: "String"
+                TransitionInDays: "Number"
+            ObjectSizeGreaterThan: "String"
+            ObjectSizeLessThan: "String"
+            Prefix: "String"
+            Status: "String"
+            TagFilters:
+              - Key: "String"
+                Value: "String"
+            Transition:
+              StorageClass: "String"
+              TransitionDate: "String"
+              TransitionInDays: "Number"
+            Transitions:
+              - StorageClass: "String"
+                TransitionDate: "String"
+                TransitionInDays: "Number"
+        TransitionDefaultMinimumObjectSize: "String"
+      LoggingConfiguration:
+        DestinationBucketName: "String"
+        LogFilePrefix: "String"
+        TargetObjectKeyFormat:
+          PartitionedPrefix:
+            PartitionDateSource: "String"
+          SimplePrefix: "JSON"
+      MetricsConfigurations: 
+        - AccessPointArn: "String"
+          Id: "String"
+          Prefix: "String"
+          TagFilters:
+            - Key: "String"
+              Value: "String"
+      NotificationConfiguration:
+        EventBridgeConfiguration:
+          EventBridgeEnabled: false
+        LambdaConfigurations:
+          - Event: "String"
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: "String"
+                    Value: "String"
+            Function: "String"
+        QueueConfigurations:
+          - Event: "String"
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: "String"
+                    Value: "String"
+            Queue: "String"
+        TopicConfigurations:
+          - Event: "String"
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: "String"
+                    Value: "String"
+            Topic: "String"
+      ObjectLockConfiguration:
+        ObjectLockEnabled: "String"
+        Rule:
+          DefaultRetention:
+            Days: "Number"
+            Mode: "String"
+            Years: "Number"
+      ObjectLockEnabled: false
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: "String"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      ReplicationConfiguration:
+        Role: "String"
+        Rules:
+          - DeleteMarkerReplication:
+              Status: "String"
+            Destination:
+              AccessControlTranslation:
+                Owner: "String"
+              Account: "String"
+              Bucket: "String"
+              EncryptionConfiguration:
+                ReplicaKmsKeyID: "String"
+              Metrics:
+                EventThreshold:
+                  Minutes: "Number"
+                Status: "String"
+              ReplicationTime:
+                Status: "String"
+                Time:
+                  Minutes: "Number"
+              StorageClass: "String"
+            Filter:
+              And:
+                Prefix: "String"
+                TagFilters:
+                  - Key: "String"
+                    Value: "String"
+              Prefix: "String"
+              TagFilter:
+                Key: "String"
+                Value: "String"
+            Id: "String"
+            Prefix: "String"
+            Priority: "Number"
+            SourceSelectionCriteria:
+              ReplicaModifications:
+                Status: "String"
+              SseKmsEncryptedObjects:
+                Status: "String"
+            Status: "String"
+      Tags: 
+        - Key: "String"
+          Value: "String"
+      VersioningConfiguration:
+        Status: "String"
+      WebsiteConfiguration:
+        ErrorDocument: "String"
+        IndexDocument: "String"
+        RedirectAllRequestsTo:
+          HostName: "String"
+          Protocol: "String"
+        RoutingRules:
+          - RedirectRule:
+              HostName: "String"
+              HttpRedirectCode: "String"
+              Protocol: "String"
+              ReplaceKeyPrefixWith: "String"
+              ReplaceKeyWith: "String"
+            RoutingRuleCondition:
+              HttpErrorCodeReturnedEquals: "String"
+              KeyPrefixEquals: "String"
+  
+Outputs:
