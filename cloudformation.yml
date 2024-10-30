@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: CloudFormation template to create an EC2 instance with specific properties
+
+Resources:
+  EC2InstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow SSH and HTTP access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-06b21ccaeff8cd686
+      InstanceType: t2.micro
+      KeyName: enes_ec2
+      SecurityGroupIds:
+        - !Ref EC2InstanceSecurityGroup
+      Tags:
+        - Key: Name
+          Value: rafe-cloudformation-lesson
